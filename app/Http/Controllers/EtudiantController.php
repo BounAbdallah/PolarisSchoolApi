@@ -5,62 +5,100 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreEtudiantRequest;
 use App\Http\Requests\UpdateEtudiantRequest;
 use App\Models\Etudiant;
+use Illuminate\Http\Response;
 
 class EtudiantController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Afficher une liste des ressources.
      */
     public function index()
     {
-        //
+        $etudiants = Etudiant::all();
+        return response()->json($etudiants);
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
+     * Stocker une nouvelle ressource.
      */
     public function store(StoreEtudiantRequest $request)
     {
-        //
+        $etudiant = Etudiant::create($request->validated());
+        return response()->json($etudiant, Response::HTTP_CREATED);
     }
 
     /**
-     * Display the specified resource.
+     * Afficher une ressource spécifique.
      */
     public function show(Etudiant $etudiant)
     {
-        //
+        return response()->json($etudiant);
     }
 
     /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Etudiant $etudiant)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
+     * Mettre à jour une ressource spécifique.
      */
     public function update(UpdateEtudiantRequest $request, Etudiant $etudiant)
     {
-        //
+        $etudiant->update($request->validated());
+        return response()->json($etudiant);
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Supprimer une ressource spécifique.
      */
     public function destroy(Etudiant $etudiant)
     {
-        //
+        $etudiant->delete();
+        return response()->json(null, Response::HTTP_NO_CONTENT);
+    }
+
+    /**
+     * Restaurer une ressource supprimée.
+     */
+    public function restore($id)
+    {
+        $etudiant = Etudiant::onlyTrashed()->where('id', $id)->first();
+        if ($etudiant) {
+            $etudiant->restore();
+            return response()->json([
+                'message' => 'Etudiant restauré avec succès',
+                'etudiant' => $etudiant,
+            ]);
+        } else {
+            return response()->json([
+                'message' => 'Etudiant non trouvé ou déjà restauré',
+            ], Response::HTTP_NOT_FOUND);
+        }
+    }
+
+    /**
+     * Supprimer définitivement une ressource.
+     */
+    public function forceDelete($id)
+    {
+        $etudiant = Etudiant::onlyTrashed()->where('id', $id)->first();
+        if ($etudiant) {
+            $etudiant->forceDelete();
+            return response()->json([
+                'message' => 'Etudiant supprimé définitivement',
+            ]);
+        } else {
+            return response()->json([
+                'message' => 'Etudiant non trouvé ou déjà supprimé définitivement',
+            ], Response::HTTP_NOT_FOUND);
+        }
+    }
+
+    /**
+     * Afficher les ressources supprimées.
+     */
+    public function trashed()
+    {
+        $etudiants = Etudiant::onlyTrashed()->get();
+        return response()->json([
+            'message' => 'Etudiants archivés',
+            'etudiants' => $etudiants,
+        ]);
     }
 }
