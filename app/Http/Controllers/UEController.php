@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreUERequest;
 use App\Http\Requests\UpdateUERequest;
 use App\Models\UE;
+use Illuminate\Http\Response;
 
 class UEController extends Controller
 {
@@ -13,15 +14,8 @@ class UEController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        $ues = UE::all();
+        return response()->json($ues);
     }
 
     /**
@@ -29,7 +23,8 @@ class UEController extends Controller
      */
     public function store(StoreUERequest $request)
     {
-        //
+        $ue = UE::create($request->validated());
+        return response()->json($ue, Response::HTTP_CREATED);
     }
 
     /**
@@ -37,15 +32,7 @@ class UEController extends Controller
      */
     public function show(UE $uE)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(UE $uE)
-    {
-        //
+        return response()->json($uE);
     }
 
     /**
@@ -53,7 +40,8 @@ class UEController extends Controller
      */
     public function update(UpdateUERequest $request, UE $uE)
     {
-        //
+        $uE->update($request->validated());
+        return response()->json($uE);
     }
 
     /**
@@ -61,6 +49,7 @@ class UEController extends Controller
      */
     public function destroy(UE $uE)
     {
-        //
+        $uE->delete();
+        return response()->json(null, Response::HTTP_NO_CONTENT);
     }
 }

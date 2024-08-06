@@ -7,28 +7,28 @@ use Illuminate\Http\Request;
 class AuthController extends Controller
 {
     public function login(Request $request)
-    { 
-        $validator = Validator($request->all(), [
-            'email' => 'required|email','string',
-            'password' => 'required|string',
-           ]);  
-           if($validator->fails()){
-            return response()->json(['errors'=>$validator->errors()->all()], 422);
-           }
-           $credentials = $request->only('email', 'password');
-           $token = auth()->attempt($credentials);
-           if (!$token) {
-            return response()->json([
-              'message' => 'Unauthorized'
-            ], 401);
-           }
-           $user = auth()->user();
-           $success['token'] =  $token;
-           $success['name'] =  $user->name;
-           return response()->json($success, 200);
-
+    {
+        $validator = validator($request->all(),  [
+            "email" => ["required", "email", "string"],
+            "password" => ["required", "string"]
+        ]);
+        if ($validator->fails()) {
+            return response()->json(["errors" => $validator->errors()], 422);
+        }
+        $credentials = $request->only(["email", "password"]);
+        $token = auth()->attempt($credentials);
+        if (!$token) {
+            return response()->json(["message" => "Informations de connexion incorrectes"], 401);
         }
 
+        return response()->json([
+            "access_token" => $token,
+            "token_type" => "bearer",
+            "user" => auth()->user(),
+            "user_id" => auth()->user()->id,
+            "expires_in" => env("JWT_TTL") * 60 . " seconds"
+        ]);
+    }
         public function logout()
         {
             auth()->logout();

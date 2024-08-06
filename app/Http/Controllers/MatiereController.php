@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreMatiereRequest;
 use App\Http\Requests\UpdateMatiereRequest;
 use App\Models\Matiere;
+use Illuminate\Http\Response;
 
 class MatiereController extends Controller
 {
@@ -13,15 +14,8 @@ class MatiereController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        $matieres = Matiere::all();
+        return response()->json($matieres);
     }
 
     /**
@@ -29,7 +23,8 @@ class MatiereController extends Controller
      */
     public function store(StoreMatiereRequest $request)
     {
-        //
+        $matiere = Matiere::create($request->validated());
+        return response()->json($matiere, Response::HTTP_CREATED);
     }
 
     /**
@@ -37,15 +32,7 @@ class MatiereController extends Controller
      */
     public function show(Matiere $matiere)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Matiere $matiere)
-    {
-        //
+        return response()->json($matiere);
     }
 
     /**
@@ -53,7 +40,8 @@ class MatiereController extends Controller
      */
     public function update(UpdateMatiereRequest $request, Matiere $matiere)
     {
-        //
+        $matiere->update($request->validated());
+        return response()->json($matiere);
     }
 
     /**
@@ -61,6 +49,7 @@ class MatiereController extends Controller
      */
     public function destroy(Matiere $matiere)
     {
-        //
+        $matiere->delete();
+        return response()->json(null, Response::HTTP_NO_CONTENT);
     }
 }
