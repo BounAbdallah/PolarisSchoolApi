@@ -52,4 +52,53 @@ class UEController extends Controller
         $uE->delete();
         return response()->json(null, Response::HTTP_NO_CONTENT);
     }
+
+    /**
+     * Restore a trashed resource.
+     */
+    public function restore($id)
+    {
+        $ue = UE::onlyTrashed()->where('id', $id)->first();
+        if ($ue) {
+            $ue->restore();
+            return response()->json([
+                'message' => 'UE restaurée avec succès',
+                'ue' => $ue,
+            ]);
+        } else {
+            return response()->json([
+                'message' => 'UE non trouvée ou déjà restaurée',
+            ], Response::HTTP_NOT_FOUND);
+        }
+    }
+
+    /**
+     * Permanently delete a trashed resource.
+     */
+    public function forceDelete($id)
+    {
+        $ue = UE::onlyTrashed()->where('id', $id)->first();
+        if ($ue) {
+            $ue->forceDelete();
+            return response()->json([
+                'message' => 'UE supprimée définitivement',
+            ]);
+        } else {
+            return response()->json([
+                'message' => 'UE non trouvée ou déjà supprimée définitivement',
+            ], Response::HTTP_NOT_FOUND);
+        }
+    }
+
+    /**
+     * Display trashed resources.
+     */
+    public function trashed()
+    {
+        $ues = UE::onlyTrashed()->get();
+        return response()->json([
+            'message' => 'UEs archivées',
+            'ues' => $ues,
+        ]);
+    }
 }

@@ -6,23 +6,31 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateUERequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
-    public function authorize(): bool
+    public function authorize()
     {
-        return false;
+        return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
-     */
-    public function rules(): array
+    public function rules()
     {
         return [
-            //
+            'libelle' => 'sometimes|required|string|max:255',
+            'date_debut' => 'sometimes|required|date',
+            'date_fin' => 'sometimes|required|date|after_or_equal:date_debut',
+            'coef' => 'sometimes|required|integer|min:1',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'libelle.required' => 'Le libellé est requis.',
+            'date_debut.required' => 'La date de début est requise.',
+            'date_fin.required' => 'La date de fin est requise.',
+            'date_fin.after_or_equal' => 'La date de fin doit être après ou égale à la date de début.',
+            'coef.required' => 'Le coefficient est requis.',
+            'coef.integer' => 'Le coefficient doit être un entier.',
+            'coef.min' => 'Le coefficient doit être au moins 1.',
         ];
     }
 }
