@@ -1,0 +1,1740 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Your API Title",
+        "description": "Your API Description",
+        "version": "1.0.0"
+    },
+    "security": [
+        {
+            "BearerAuth": []
+        }
+    ],
+    "components": {
+        "securitySchemes": {
+            "BearerAuth": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT"
+            }
+        }
+    },
+    "consumes": [
+        "multipart/form-data"
+    ],
+    "paths": {
+        "/api/evaluations": {
+            "get": {
+                "summary": "Liste Evaluations",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "CRUD_Evaluations"
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "User-Agent",
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/api/add/evaluations": {
+            "post": {
+                "summary": "Ajout  Evaluations",
+                "description": "",
+                "responses": {
+                    "201": {
+                        "description": "Created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "CRUD_Evaluations"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "date",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "valeur",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "etudiant_id",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "matiere_id",
+                        "type": "string"
+                    },
+                    {
+                        "in": "header",
+                        "name": "User-Agent",
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/api/evaluations/{id}": {
+            "get": {
+                "summary": "Details Evaluations",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "CRUD_Evaluations"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "date",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "valeur",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "etudiant_id",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "matiere_id",
+                        "type": "string"
+                    },
+                    {
+                        "in": "header",
+                        "name": "User-Agent",
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/api/evaluations/update/{id}": {
+            "put": {
+                "summary": "Modification  Evaluations",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "CRUD_Evaluations"
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "User-Agent",
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/api/ues": {
+            "get": {
+                "summary": "Liste UE",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "CRUD_UE"
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "User-Agent",
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/api/add/ues": {
+            "post": {
+                "summary": "Ajout UE",
+                "description": "",
+                "responses": {
+                    "201": {
+                        "description": "Created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "CRUD_UE"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "libelle",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "date_debut",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "date_fin",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "coef",
+                        "type": "string"
+                    },
+                    {
+                        "in": "header",
+                        "name": "User-Agent",
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/api/ues/{id}": {
+            "get": {
+                "summary": "Details UE",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "CRUD_UE"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "libelle",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "date_debut",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "date_fin",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "coef",
+                        "type": "string"
+                    },
+                    {
+                        "in": "header",
+                        "name": "User-Agent",
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/api/update/ues/{id}": {
+            "put": {
+                "summary": "Modification UE",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "CRUD_UE"
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "User-Agent",
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/api/ues/trashed": {
+            "get": {
+                "summary": "Corbeille UE",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "CRUD_UE"
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "User-Agent",
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/api/ues/delete/{id}": {
+            "post": {
+                "summary": "Mettre UE à la Corbeille ",
+                "description": "",
+                "responses": {
+                    "201": {
+                        "description": "Created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "CRUD_UE"
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "User-Agent",
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/api/ues/restore/{id}": {
+            "post": {
+                "summary": "Restorer UE à la Corbeille ",
+                "description": "",
+                "responses": {
+                    "201": {
+                        "description": "Created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "CRUD_UE"
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "User-Agent",
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/api/matieres": {
+            "get": {
+                "summary": "Liste Matieres",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "CRUD_Matiere"
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "User-Agent",
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/api/add/matieres": {
+            "post": {
+                "summary": "Ajout Matieres",
+                "description": "",
+                "responses": {
+                    "201": {
+                        "description": "Created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "CRUD_Matiere"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "",
+                        "type": "string"
+                    },
+                    {
+                        "in": "header",
+                        "name": "User-Agent",
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/api/matieres/{id}": {
+            "get": {
+                "summary": "Details Matieres",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "CRUD_Matiere"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "",
+                        "type": "string"
+                    },
+                    {
+                        "in": "header",
+                        "name": "User-Agent",
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/api/update/matieres/{id}": {
+            "put": {
+                "summary": "Modification Matieres",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "CRUD_Matiere"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "",
+                        "type": "string"
+                    },
+                    {
+                        "in": "header",
+                        "name": "User-Agent",
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/api/delete/matieres/{id}": {
+            "delete": {
+                "summary": "Suppression Matieres",
+                "description": "",
+                "responses": {
+                    "204": {
+                        "description": "Deleted successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "CRUD_Matiere"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "",
+                        "type": "string"
+                    },
+                    {
+                        "in": "header",
+                        "name": "User-Agent",
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/api/etudiants/": {
+            "get": {
+                "summary": "Liste Etudiantss",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "CRUD_Etudiant"
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "User-Agent",
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/api/etudiants/trashed": {
+            "get": {
+                "summary": "Corbeille  Etudiants",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "CRUD_Etudiant"
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "User-Agent",
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/api/add/etudiant": {
+            "post": {
+                "summary": "Ajout Etudiant",
+                "description": "",
+                "responses": {
+                    "201": {
+                        "description": "Created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "CRUD_Etudiant"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "prenom",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "nom",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "date_de_naissance",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "adresse",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "telephone",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "matricule",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "email",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "mot_de_pass",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "",
+                        "type": "string"
+                    },
+                    {
+                        "in": "header",
+                        "name": "User-Agent",
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/api/update/{id}": {
+            "put": {
+                "summary": "Modification Etudiant",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "CRUD_Etudiant"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "prenom",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "nom",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "date_de_naissance",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "adresse",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "telephone",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "matricule",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "email",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "mot_de_pass",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "",
+                        "type": "string"
+                    },
+                    {
+                        "in": "header",
+                        "name": "User-Agent",
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/api/etudiants/restore/{id}": {
+            "post": {
+                "summary": "Restorer Etudiant",
+                "description": "",
+                "responses": {
+                    "201": {
+                        "description": "Created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "CRUD_Etudiant"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "prenom",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "nom",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "date_de_naissance",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "adresse",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "telephone",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "matricule",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "email",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "mot_de_pass",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "",
+                        "type": "string"
+                    },
+                    {
+                        "in": "header",
+                        "name": "User-Agent",
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/api/detail/{id}": {
+            "get": {
+                "summary": "Details Etudiant",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "CRUD_Etudiant"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "prenom",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "nom",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "date_de_naissance",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "adresse",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "telephone",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "matricule",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "email",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "mot_de_pass",
+                        "type": "string"
+                    },
+                    {
+                        "in": "header",
+                        "name": "User-Agent",
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/api/delete/{id}": {
+            "post": {
+                "summary": "Delete Etudiant",
+                "description": "",
+                "responses": {
+                    "201": {
+                        "description": "Created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "CRUD_Etudiant"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "prenom",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "nom",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "date_de_naissance",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "adresse",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "telephone",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "matricule",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "email",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "mot_de_pass",
+                        "type": "string"
+                    },
+                    {
+                        "in": "header",
+                        "name": "User-Agent",
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/api/etudiants/force-delete/{id}": {
+            "delete": {
+                "summary": "Force Delete Etudiant",
+                "description": "",
+                "responses": {
+                    "204": {
+                        "description": "Deleted successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "CRUD_Etudiant"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "prenom",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "nom",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "date_de_naissance",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "adresse",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "telephone",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "matricule",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "email",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "mot_de_pass",
+                        "type": "string"
+                    },
+                    {
+                        "in": "header",
+                        "name": "User-Agent",
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/api/login": {
+            "post": {
+                "summary": "Login",
+                "description": "",
+                "responses": {
+                    "201": {
+                        "description": "Created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "Authentification"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "email",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "password",
+                        "type": "string"
+                    },
+                    {
+                        "in": "header",
+                        "name": "User-Agent",
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "/api/logout": {
+            "post": {
+                "summary": "Logout",
+                "description": "",
+                "responses": {
+                    "201": {
+                        "description": "Created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": ""
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "Authentification"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "email",
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "password",
+                        "type": "string"
+                    },
+                    {
+                        "in": "header",
+                        "name": "User-Agent",
+                        "type": "string"
+                    }
+                ]
+            }
+        }
+    }
+}

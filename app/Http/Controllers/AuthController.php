@@ -9,7 +9,7 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $validator = validator($request->all(),  [
-            "email" => ["required", "email", "string"],
+            "email" => ["required", "email", "string"],  
             "password" => ["required", "string"]
         ]);
         if ($validator->fails()) {
